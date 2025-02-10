@@ -10,6 +10,9 @@
 
     <form action="{{ route('listaCoches') }}" method="get">
         <label for="marca">Marca: <input type="text" id="marca" name="marca" placeholder="Filtra por marca..." required></label>
+        <label for="color">Color: <input type="text" id="color" name="color" value="{{ old('color') }}"></label>
+        <label for="precio">Precio: <input type="number" id="precio" name="precio" value="{{ old('precio') }}"></label>
+
         <input type="submit" value="Filtrar">
     </form>
 

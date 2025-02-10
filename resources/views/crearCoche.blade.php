@@ -9,6 +9,7 @@
     <h1>Crear Coche</h1>
 
     <form action="{{ route('listaCoches') }}" method="post">
+
         @csrf
         <label for="marca">Marca: <input type="text" id="marca" name="marca" placeholder="Marca..." required></label>
         <label for="modelo">Modelo: <input type="text" id="modelo" name="modelo" placeholder="Modelo..." required></label>
@@ -20,5 +21,6 @@
     <br>
 
     <a href="{{ route('listaCoches') }}">Volver</a>
+    
 </body>
 </html>

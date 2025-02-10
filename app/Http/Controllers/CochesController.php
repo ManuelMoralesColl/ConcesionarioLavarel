@@ -11,14 +11,15 @@ class CochesController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Coche::query();
-        $marcaParaFiltrar = $request->marca;
+        $marca = $request->input('marca');
+        $color = $request->input('color');
+        $precio = $request->input('precio');
 
-        if ($request->has('marca')) {
-            $query->where('marca', 'like', '%' . $marcaParaFiltrar . '%');
-        }
+        $coches = Coche::marca($marca)
+        ->color($color)
+        ->precio((int)$precio)
+        ->get();
 
-        $coches = $query->get();
         return view('coches', compact('coches'));
     }
 
@@ -87,4 +88,5 @@ class CochesController extends Controller
         $coche->delete();
         return redirect()->route('listaCoches')->with('success', 'Coche eliminado correctamente');
     }
+    
 }
